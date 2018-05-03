@@ -36,10 +36,10 @@
             const postData = JSON.stringify({foo: 'bar'})
 
             const options = {
-                hostname: 'mockbin.com',
-                port: 80,
-                path: '/request?foo=bar&foo=baz',
-                metho:'POST',
+                hostname: 'localhost',
+                port: 3000,
+                path: '',
+                method:'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                     'Content-Length': Buffer.byteLength(postData)

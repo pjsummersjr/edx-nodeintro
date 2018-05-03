@@ -10,5 +10,5 @@ job.on('error', function(error) {
     console.log('Error occurred: ' + error)
 })
 
-job.emit('start');
+//job.emit('start');
 job.postData();
