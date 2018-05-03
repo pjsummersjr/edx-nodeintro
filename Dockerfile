@@ -1,0 +1,5 @@
+FROM node:9
+
+EXPOSE 3030
+
+CMD bash

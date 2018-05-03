@@ -1,0 +1,19 @@
+{
+  "name": "edx-nodejs-intro",
+  "version": "1.0.0",
+  "description": "Content created as part of the EdX Introduction to NodeJs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pjsummersjr/edx-nodeintro.git"
+  },
+  "author": "Paul Summers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pjsummersjr/edx-nodeintro/issues"
+  },
+  "homepage": "https://github.com/pjsummersjr/edx-nodeintro#readme"
+}
