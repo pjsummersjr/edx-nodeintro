@@ -18,8 +18,8 @@
                     data += dataChunk.toString('utf8');
                 });
                 response.on('end', () => {
-                    console.log(data);
-                    this.emit('done', {completedOn: new Date()});
+                    console.log("Request complete");
+                    this.emit('done', {completedOn: new Date(), htmlData: data});
                 });
             })
         }
