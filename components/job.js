@@ -67,6 +67,26 @@
             req.end()
         }
 
+        getData() {
+            const options = {
+                hostname: 'localhost',
+                port:3000,
+                path:'',
+                method: 'GET'
+            }
+            http.get(options, (res) => {
+                let rawData = ''
+                if(res.statusCode == 200) {
+                    res.on('data', (chunk) => {
+                        rawData += chunk
+                    })
+                    res.on('end', () => {
+                        console.log(`RESPONSE BODY: ${rawData}`)
+                    })
+                }
+            })
+        }
+
     }
 
     module.exports = Job

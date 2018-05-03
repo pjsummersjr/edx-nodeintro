@@ -19,7 +19,9 @@ http.createServer((req, res) => {
     }
     else {
         res.writeHead(200, {'Content-Type': 'text/plain'})
-        res.end('Hello World\nHello Paul')
+        res.statusCode = 200
+        res.write('Hello World');
+        res.end('Regards,\nPaul\n')
     }
     
 }).listen(port)

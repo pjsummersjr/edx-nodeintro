@@ -12,3 +12,4 @@ job.on('error', function(error) {
 
 //job.emit('start');
 job.postData();
+job.getData();
