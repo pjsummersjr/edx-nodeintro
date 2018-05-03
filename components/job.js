@@ -13,11 +13,12 @@
 
         process(){
             http.get(httpUrl, (response) => {
+                let data = ""
                 response.on('data', (dataChunk) => {
-                    console.log(dataChunk.toString('utf8'));
+                    data += dataChunk.toString('utf8');
                 });
                 response.on('end', () => {
-                    console.log('Request complete');
+                    console.log(data);
                     this.emit('done', {completedOn: new Date()});
                 });
             })
