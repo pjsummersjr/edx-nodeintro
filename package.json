@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/pjsummersjr/edx-nodeintro/issues"
   },
-  "homepage": "https://github.com/pjsummersjr/edx-nodeintro#readme"
+  "homepage": "https://github.com/pjsummersjr/edx-nodeintro#readme",
+  "dependencies": {
+    "uuid": "^3.2.1"
+  }
 }
