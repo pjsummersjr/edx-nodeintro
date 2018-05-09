@@ -8,7 +8,7 @@ const jsonFilePath = 'csvasjson.json'
 let converter = new CsvJsonConverter()
 
 jsonData = fs.readFileSync(csvFileLocation, {encoding:'utf8'})
-console.log(jsonData)
-converter.csvdatatojson(jsonData, jsonFilePath)
 
-//converter.csvtojson(csvFileUrl, jsonFilePath)
+//converter.csvdatatojson(jsonData, jsonFilePath)
+
+converter.csvtojson(csvFileUrl, jsonFilePath)
