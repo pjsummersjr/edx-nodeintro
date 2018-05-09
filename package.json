@@ -18,5 +18,8 @@
   "homepage": "https://github.com/pjsummersjr/edx-nodeintro#readme",
   "dependencies": {
     "uuid": "^3.2.1"
+  },
+  "devDependencies": {
+    "express": "^4.16.3"
   }
 }
