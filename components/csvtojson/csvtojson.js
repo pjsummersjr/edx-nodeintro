@@ -9,7 +9,7 @@ class CSVJSonConverter {
         let lineCnt = 1
         let fieldNames = null
         let fieldVals = null
-        let jsonDoc = '{"data":['
+        let jsonDoc = '['
         for(var i=0; i <= csvdata.length; i++){
             if(csvdata[i] == '\n'){
                 if(lineCnt == 1){
@@ -38,7 +38,7 @@ class CSVJSonConverter {
             line += csvdata[i]
         }
         
-        jsonDoc += ']}'
+        jsonDoc += ']'
         try {            
             //This parse step is a very rudimentary test to confirm that my JSON format is valid
             jsonData = JSON.parse(jsonDoc) 
