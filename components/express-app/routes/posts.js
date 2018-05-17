@@ -26,10 +26,11 @@ router.get('/:postId', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    
+    //console.log(req.body)
     let post = req.body
     post.id = random.integer(0,100000)(random.engines.nativeMath)
     post.comments = []
+    console.log(`BLOG SERVER: ${post.name}`)
     posts.push(post)
     res.status(201).send({id:post.id})
 })
@@ -47,9 +48,9 @@ router.put('/:postId', (req, res) => {
 
 router.delete('/:postId', (req, res) => {
     let postId = req.params.postId
-    posts.forEach((value) => {
+    posts.forEach((value, index) => {
         if(value.id == postId){
-            posts[id] = null
+            posts.splice(index, 1)
         }
     })
     res.sendStatus(201)

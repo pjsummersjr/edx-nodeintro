@@ -38,4 +38,35 @@ comments.post('/', (req, res) => {
     res.status(200).send(posts[postIndex])
 })
 
+comments.put('/:commentId', (req, res) => {
+    let postIndex = null
+    posts.forEach((val, i) => {
+        if(val.id == req.params.postId){
+            let commentIndex = null
+            let cId = req.params.commentId
+            posts[i].comments.forEach((cVal, cI) => {
+                if(cVal.id == cId) {
+                    let comment = req.body
+                    comment.id = cId
+                    posts[i].comments[cI] = comment                    
+                }
+            })
+        }
+    })
+    res.status(200).send(req.params.commentId)
+})
+
+comments.delete('/:commentId', (req, res) => {
+    posts.forEach((val, i) => {
+        if(val.id == req.params.postId){
+            posts[i].comments.forEach((cVal, cI) => {
+                if(cVal.id == req.params.commentId){
+                    posts[i].comments.splice(cI,1)
+                }
+            })
+        }
+    })
+    res.status(200).send(req.params.commentId)
+})
+
 module.exports = comments
