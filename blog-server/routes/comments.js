@@ -1,6 +1,6 @@
 var express = require('express')
 const random = require('random-js')
-const posts = require('../data/post-store.js')
+const posts = require('../store/post-store.js')
 var comments = express.Router({mergeParams: true})
 
 

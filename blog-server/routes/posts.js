@@ -1,6 +1,6 @@
 const express = require('express')
 const random = require('random-js')
-const postStore = require('../data/post-store.js')
+const postStore = require('../store/post-store.js')
 var posts = new postStore()
 var router = express.Router()
 
