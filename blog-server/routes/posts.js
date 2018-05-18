@@ -1,7 +1,7 @@
 const express = require('express')
 const random = require('random-js')
-const posts = require('../data/post-store.js')
-
+const postStore = require('../data/post-store.js')
+var posts = new postStore()
 var router = express.Router()
 
 router.use((req, res, next) => {
@@ -11,18 +11,15 @@ router.use((req, res, next) => {
 })
 
 router.get('/', (req, res) => {
-    res.status(201).send(posts)
+    posts.getPosts((data) => {
+        res.status(201).send(data)
+    })
 })
 
 router.get('/:postId', (req, res) => {
-    posts.forEach((value, index) => {
-        console.log(`${req.params.postId} == ${value.id}`)
-        if(req.params.postId == value.id){
-            res.status(201).send(value)
-            return
-        }
+    posts.getPost(req.params.postId, (data) => {
+        res.status(200).send(data)
     })
-    //res.status(500).send({msg: 'Error retrieving post. Post does not exist.'})
 })
 
 router.post('/', (req, res) => {
@@ -30,30 +27,31 @@ router.post('/', (req, res) => {
     let post = req.body
     post.id = random.integer(0,100000)(random.engines.nativeMath)
     post.comments = []
-    console.log(`BLOG SERVER: ${post.name}`)
-    posts.push(post)
-    res.status(201).send({id:post.id})
+    
+    posts.addPost(post, (data) => {   
+        console.log(data)     
+        res.status(200).send({id:post.id})
+    })  
 })
 
 router.put('/:postId', (req, res) => {
     let post = req.body
     post.id = req.params.postId
-    posts.forEach((value, index) => {
-        if(value.id == post.id){
-            posts[index] = post   
-        }
+    posts.updatePost(post.id, post, (data) => {
+        res.status(200).send(data)
     })
-    res.status(201).send(post)
 })
 
 router.delete('/:postId', (req, res) => {
     let postId = req.params.postId
-    posts.forEach((value, index) => {
-        if(value.id == postId){
-            posts.splice(index, 1)
+    posts.deletePost(postId, (e) => { 
+        if(!e){
+            res.sendStatus(200)
+        }        
+        else {
+            res.status(500).send(e.msg)
         }
     })
-    res.sendStatus(201)
 })
 
 
