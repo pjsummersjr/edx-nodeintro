@@ -1,3 +1,7 @@
 components/csvtojson/csvtojson.js
 node_modules
 data
+mongo-exercise/async-test.js
+mongo-exercise/data-mod.js
+mongo-exercise/database-test.js
+mongo-exercise/package-lock.json
